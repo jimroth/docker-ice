@@ -1,5 +1,5 @@
 FROM jonbrouse/java:7
-MAINTAINER Jon Brouse @jonbrouse
+MAINTAINER Jim Roth @jimroth
 
 ENV INSTALL_DIR /opt/ice
 ENV HOME_DIR /root
