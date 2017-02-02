@@ -3,7 +3,7 @@ ice:
   command: | 
     -Djava.net.preferIPv4Stack=true
     -Djava.net.preferIPv4Addresses
-    -Duser.timezone=<Your Timezone ie America/New_York>
+    -Duser.timezone=UTC
     -Dice.s3AccessKeyId=<s3AccessKeyId>
     -Dice.s3SecretKey=<s3SecretKeyId>
     run-app
