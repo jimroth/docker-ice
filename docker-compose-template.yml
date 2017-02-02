@@ -1,5 +1,5 @@
 ice:
-  image: jonbrouse/ice:latest
+  image: jimroth/ice:latest
   command: | 
     -Djava.net.preferIPv4Stack=true
     -Djava.net.preferIPv4Addresses
