@@ -84,6 +84,34 @@ I've included an Upstart job in the `init` directory of this repository. This wi
 
 4. Reload the job controller `initctl reload-configuration`
 
+# LDAP Authentication and SSL/TLS Configuration
+
+An alternate configuration for Nginx that supports LDAP authentication and TLS is provided in the nginx-ldap folder along with the docker-compose-nginx-ldap.yml file.
+
+## Setup
+- Place your Cert and Key in the files `nginx-ldap/assets/ssl/ice.cert` and `nginx-ldap/assets/ssl/ice.key`
+- Create the nginx.conf file: `cp nginx-ldap/assets/nginx-template.conf nginx-ldap/assets/nginx.conf` 
+- Open nginx.conf and set the <Host>, <Port>, <User>, and <Password> fields for your ldap server: `vi nginx-ldap/assets/nginx.conf`. The example below is usung an AWS IAM LDAP Bridge server. You may need to make additional changes to the LDAP fields for your environment.
+
+	    ldap_server ldap1 {
+        	url ldap://<Host>:<Port>/dc=iam,dc=aws,dc=org?uid?sub?(objectClass=posixaccount);
+        	binddn "uid=<User>,ou=system";
+        	binddn_passwd "<Password>";
+        	group_attribute uniquemember;
+        	group_attribute_is_dn on;
+	    }
+- Create the docker-compose file: `cp docker-compose-nginx-ldap.yml docker-compose.yml` 
+- Open docker-compose.yml and add the AWS Access Key ID and Secret Key that has access to the s3 billing bucket: `vi docker-compose.yml`
+
+	    ice:
+	      build: ice
+	      command: |
+	        -Djava.net.preferIPv4Stack=true
+	        -Djava.net.preferIPv4Addresses
+	        -Dice.s3AccessKeyId=<s3AccessKeyId>
+	        -Dice.s3SecretKey=<s3SecretKeyId>
+
+
 # Notes
 
 ## Highstock.js

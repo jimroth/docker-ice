@@ -1,2 +1,4 @@
 ice/assets/ice.properties
 docker-compose.yml
+nginx-ldap/assets/nginx.conf
+nginx-ldap/assets/ssl
