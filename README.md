@@ -89,9 +89,9 @@ I've included an Upstart job in the `init` directory of this repository. This wi
 An alternate configuration for Nginx that supports LDAP authentication and TLS is provided in the nginx-ldap folder along with the docker-compose-nginx-ldap.yml file.
 
 ## Setup
-- Place your Cert and Key in the files `nginx-ldap/assets/ssl/ice.cert` and `nginx-ldap/assets/ssl/ice.key`
+- Place your Cert and Key in the files `nginx-ldap/assets/ssl/ice.crt` and `nginx-ldap/assets/ssl/ice.key`
 - Create the nginx.conf file: `cp nginx-ldap/assets/nginx-template.conf nginx-ldap/assets/nginx.conf` 
-- Open nginx.conf and set the <Host>, <Port>, <User>, and <Password> fields for your ldap server: `vi nginx-ldap/assets/nginx.conf`. The example below is usung an AWS IAM LDAP Bridge server. You may need to make additional changes to the LDAP fields for your environment.
+- Open nginx.conf and set the Host, Port, User, and Password fields for your ldap server: `vi nginx-ldap/assets/nginx.conf`. The example below is usung an AWS IAM LDAP Bridge server. You may need to make additional changes to the LDAP fields for your environment.
 
 	    ldap_server ldap1 {
         	url ldap://<Host>:<Port>/dc=iam,dc=aws,dc=org?uid?sub?(objectClass=posixaccount);

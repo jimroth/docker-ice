@@ -9,7 +9,7 @@ ice:
     run-app
   volumes:
     - ./ice/assets/ice.properties:/opt/ice/src/java/ice.properties
-nginx:
+nginx-ldap:
   image: jimroth/nginx-ldap:latest
   command: nginx -g "daemon off;"
   volumes:
