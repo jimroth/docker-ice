@@ -1,4 +1,4 @@
-FROM jonbrouse/java:7
+FROM jonbrouse/java:8
 MAINTAINER Jim Roth @jimroth
 
 ENV INSTALL_DIR /opt/ice
