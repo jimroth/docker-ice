@@ -3,3 +3,6 @@ docker-compose.yml
 nginx-ldap/assets/nginx.conf
 nginx-ldap/assets/ssl
 .DS_Store
+*.crt
+*.key
+vouch/assets/config/config.yml
