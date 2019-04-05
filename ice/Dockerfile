@@ -1,4 +1,4 @@
-FROM jonbrouse/java:8
+FROM openjdk:8-stretch
 MAINTAINER Jim Roth @jimroth
 
 ENV INSTALL_DIR /opt/ice
