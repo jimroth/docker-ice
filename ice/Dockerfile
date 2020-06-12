@@ -1,4 +1,4 @@
-FROM openjdk:8-stretch
+FROM openjdk:8-buster
 MAINTAINER Jim Roth @jimroth
 
 ENV INSTALL_DIR /opt/ice
@@ -31,7 +31,7 @@ RUN \
   rm grails-app/i18n/messages.properties && \ 
   sed -i -e '1i#!/bin/bash\' grailsw
 
-EXPOSE 8080
+EXPOSE 8080 9010
 
 ENTRYPOINT ["/opt/ice/grailsw"]
 

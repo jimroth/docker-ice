@@ -1,4 +1,4 @@
-ice/assets/ice.properties
+ice/assets/ice.*
 docker-compose.yml
 nginx-ldap/assets/nginx.conf
 nginx-ldap/assets/ssl
@@ -6,3 +6,4 @@ nginx-ldap/assets/ssl
 *.crt
 *.key
 vouch/assets/config/config.yml
+docker-compose-ec2-processor.yml
